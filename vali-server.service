@@ -5,7 +5,7 @@ After=network.target
 [Service]
 User=ubuntu
 WorkingDirectory=/home/ubuntu/
-ExecStart=/usr/bin/node server.js
+ExecStart=/usr/bin/node vali-server.js
 Restart=on-failure
 RestartSec=5s
 
