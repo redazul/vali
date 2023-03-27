@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const { exec } = require('child_process');
 
@@ -6,7 +7,11 @@ const app = express();
 const port = process.env.PORT || 3005;
 const apiKey = process.env.VALI_API_KEY;
 
+// Enable CORS for all routes
+app.use(cors());
+
 app.use(bodyParser.json());
+
 
 app.get('/ping', (req, res) => {
   res.send('pong');
