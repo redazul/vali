@@ -1,13 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { exec } = require('child_process');
-const fs = require('fs');
 
 const app = express();
-const port = process.env.PORT || 3000;
-const apiKey = process.env.API_KEY;
+const port = process.env.PORT || 3005;
+const apiKey = process.env.VALI_API_KEY;
 
 app.use(bodyParser.json());
+
+app.get('/ping', (req, res) => {
+  res.send('pong');
+});
 
 app.post('/run-command', (req, res) => {
   const { key, command, scriptPath } = req.body;
