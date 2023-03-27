@@ -2,5 +2,5 @@
 
 # Install Vali
 ```
-curl -L https://raw.githubusercontent.com/username/repo/branch/path/to/setup_vali_server.sh | bash
+curl -L https://raw.githubusercontent.com/redazul/vali/main/install-vali.sh | bash
 ```
