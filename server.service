@@ -3,8 +3,8 @@ Description=POST Req Server
 After=network.target
 
 [Service]
-User=sol
-WorkingDirectory=/home/sol/
+User=ubuntu
+WorkingDirectory=/home/ubuntu/
 ExecStart=/usr/bin/node server.js
 Restart=on-failure
 RestartSec=5s
