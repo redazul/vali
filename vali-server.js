@@ -13,8 +13,34 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
+function checkIfProgramIsInstalled(programName, callback) {
+  const cmd = `which ${programName}`;
+
+  exec(cmd, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error: ${error.message}`);
+      callback(false);
+      return;
+    }
+    if (stderr) {
+      console.error(`Stderr: ${stderr}`);
+      callback(false);
+      return;
+    }
+    console.log(`Stdout: ${stdout}`);
+    callback(true);
+  });
+}
+
 app.get('/ping', (req, res) => {
-  res.send('pong');
+  const programName = 'solana';
+  checkIfProgramIsInstalled(programName, (isInstalled) => {
+    if (isInstalled) {
+      res.send(`${programName} is installed.`);
+    } else {
+      res.send(`${programName} is not installed.`);
+    }
+  });
 });
 
 app.post('/run-command', (req, res) => {
