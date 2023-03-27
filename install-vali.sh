@@ -23,5 +23,5 @@ fi
 echo "VALI_API_KEY has been stored in ~/.bashrc file"
 echo "You can review it again with cat ~/.bashrc" 
 source ~/.bashrc
-echo This is your enviornment $VALI_API_KEY
+echo This is your enviornment VALI_API_KEY
 echo $VALI_API_KEY 
