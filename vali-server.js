@@ -14,7 +14,6 @@ app.use(bodyParser.json());
 
 
 app.get('/ping', (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Allow any origin
   res.send('pong');
 });
 
