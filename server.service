@@ -1,0 +1,13 @@
+[Unit]
+Description=POST Req Server
+After=network.target
+
+[Service]
+User=sol
+WorkingDirectory=/home/sol/
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
