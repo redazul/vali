@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#install dep
+npm i express
+
 #get systemd vali file
 sudo curl -o /etc/systemd/system/vali-server.service https://raw.githubusercontent.com/redazul/vali/main/vali-server.service
 
@@ -8,3 +11,16 @@ sudo curl -o /home/ubuntu/vali-server.js https://raw.githubusercontent.com/redaz
 
 #start vali service
 sudo systemctl start vali-server.service
+
+#create an API Key for the user
+if grep -q "export VALI_API_KEY" ~/.bashrc; then
+  sed -i "s/^export VALI_API_KEY=.*/export VALI_API_KEY=$(uuidgen)/" ~/.bashrc
+else
+  echo "export VALI_API_KEY=$(uuidgen)" >> ~/.bashrc
+fi
+
+#Display API Key
+echo "VALI_API_KEY has been stored in ~/.bashrc file"
+echo "You can review it again with cat ~/.bashrc" 
+echo This is your API key
+echo $VALI_API_KEY 
