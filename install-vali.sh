@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #install dep
-sudo npm install -g express
+npm install express
+npm install cors
 
 #get systemd vali file
 sudo curl -o /etc/systemd/system/vali-server.service https://raw.githubusercontent.com/redazul/vali/main/vali-server.service
